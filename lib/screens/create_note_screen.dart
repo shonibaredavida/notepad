@@ -75,7 +75,10 @@ class _CreateNoteScreenState extends State<CreateNoteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: NoteCharacterCountFab(noteContent: noteContent),
+      floatingActionButton: NoteCharacterCountFab(
+        noteContent: noteContent,
+        countColor: selectedColor,
+      ),
       appBar: AppBar(
         backgroundColor: widget.noteIndex != null
             ? currentNote.color.withValues(alpha: 0.8)
