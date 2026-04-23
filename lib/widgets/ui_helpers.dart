@@ -32,7 +32,43 @@ Future<dynamic> appShowDialog(
   );
 }
 
+Future<Color?> colorSelector(
+  BuildContext context,
+  ValueNotifier<Color> selectedColor,
+) {
+  return showDialog<Color>(
+    context: context,
+    builder: (context) {
+      return StatefulBuilder(
+        builder: (context, setDialogState) {
+          return AlertDialog(
+            content: Padding(
+              padding: const EdgeInsets.fromLTRB(8, 10, 18.0, 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: appNoteColors.map((color) {
+                  final isSelected = selectedColor.value == color;
+                  return GestureDetector(
+                    onTap: () => setDialogState(() {
+                      selectedColor.value = color;
+                      Navigator.pop(context, selectedColor.value);
+                    }),
+                    child: Container(
+                      width: 38,
+                      height: 38,
+                      decoration: BoxDecoration(
+                        color: color,
+                        border: Border.all(
+                          color: isSelected ? Colors.black : Colors.transparent,
+                          width: 2,
+                        ),
+                      ),
+                      child: isSelected ? Icon(Icons.check, size: 18) : null,
+                    ),
+                  );
+                }).toList(),
               ),
+            ),
           );
         },
       );
