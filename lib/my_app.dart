@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: AppTheme.theme,
       title: 'Kodecamp Notepad',
+
       debugShowCheckedModeBanner: false,
       home: Homescreen(service: controller),
     );

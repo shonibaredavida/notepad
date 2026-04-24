@@ -22,11 +22,11 @@ class NoteListViewItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
+        border: Border.all(width: 0.1),
         color: note.color,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(0),
       ),
       child: ListTile(
         isThreeLine: true,
